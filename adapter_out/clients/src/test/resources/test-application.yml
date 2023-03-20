@@ -1,0 +1,12 @@
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 5000
+        readTimeout: 5000
+        loggerLevel: FULL
+
+dummyjson:
+  basePath: http://localhost:9561
+  uri:
+    products: /products
