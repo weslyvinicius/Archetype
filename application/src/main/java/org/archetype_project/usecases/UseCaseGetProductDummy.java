@@ -2,8 +2,8 @@ package org.archetype_project.usecases;
 
 import lombok.AllArgsConstructor;
 import org.archetype_project.domain.Product;
-import org.archetype_project.ports.in.IUseCaseGetProductDummy;
-import org.archetype_project.ports.out.IUseCaseIntegrationDummyAPI;
+import org.archetype_project.ports.contract_in.IUseCaseGetProductDummy;
+import org.archetype_project.ports.contract_out.IUseCaseIntegrationDummyAPI;
 import org.springframework.stereotype.Service;
 
 

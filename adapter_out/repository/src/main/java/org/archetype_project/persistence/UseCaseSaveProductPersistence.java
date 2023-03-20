@@ -3,7 +3,7 @@ package org.archetype_project.persistence;
 import lombok.AllArgsConstructor;
 import org.archetype_project.domain.Product;
 import org.archetype_project.mappers.ProductEntityMapper;
-import org.archetype_project.ports.out.IUseCaseSaveProduct;
+import org.archetype_project.ports.contract_out.IUseCaseSaveProduct;
 import org.springframework.stereotype.Component;
 
 

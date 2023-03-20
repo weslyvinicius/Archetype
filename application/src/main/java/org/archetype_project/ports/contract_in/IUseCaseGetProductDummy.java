@@ -1,4 +1,4 @@
-package org.archetype_project.ports.in;
+package org.archetype_project.ports.contract_in;
 
 
 import org.archetype_project.domain.Product;
