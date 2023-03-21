@@ -59,10 +59,7 @@ class ArchetypeControllerTest {
         var product = ObjectMapperUtils.mapperReader(TestConstants.PRODUCTS_CREATE_RESPONSE, Product.class);
         Mockito.when(useCaseCreateProduct.createProduct(Mockito.any())).thenReturn(product);
 
-
         var produtoRequet = ObjectMapperUtils.mapperReader(TestConstants.PRODUCT_REQUEST, ProductRequest.class);
-
-
 
         String resultRequest = mockMvc.perform(MockMvcRequestBuilders.post(ConstantsNames.URI_VERSION_NAME)
                                       .content(ObjectMapperUtils.writeValueAsString(produtoRequet))

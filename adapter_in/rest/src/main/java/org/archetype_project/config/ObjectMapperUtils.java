@@ -13,6 +13,8 @@ import org.springframework.util.ResourceUtils;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.util.Collection;
+import java.util.List;
 
 @Slf4j
 public class ObjectMapperUtils {
@@ -41,12 +43,21 @@ public class ObjectMapperUtils {
     public static <T> T parse(String textParse, Class<T> className) throws IOException {
         return mapperReader(textParse, className, false);
     }
+
+    public static <T> List<T> parseList(String textParse, Class<? extends Collection> type, Class<T> elementType) throws IOException {
+        return mapperReaderList(textParse,type, elementType, false);
+    }
+
     public static <T> T mapperReader(String fileNameOrObject, Class<T> className) throws IOException {
         return mapperReader(fileNameOrObject, className, true);
     }
 
     public static <T> T mapperReader(String fileNameOrObject, Class<T> className, boolean isFile) throws IOException {
         return OBJECT_MAPPER.readValue(isFile ? readFile(fileNameOrObject) : fileNameOrObject, className);
+    }
+    public static <T> List<T> mapperReaderList(String fileNameOrObject, Class<? extends Collection> type, Class<T> elementType, boolean isFile) throws IOException {
+        var textParse = isFile ? readFile(fileNameOrObject) : fileNameOrObject;
+        return OBJECT_MAPPER.readValue(textParse, OBJECT_MAPPER.getTypeFactory().constructCollectionType(type, elementType));
     }
 
     private static String readFile(String path) throws IOException {
