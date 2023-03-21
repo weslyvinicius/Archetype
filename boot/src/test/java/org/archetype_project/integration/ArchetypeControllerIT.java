@@ -1,5 +1,6 @@
 package org.archetype_project.integration;
 
+import org.archetype_project.ArchetypeIntegrationTests;
 import org.archetype_project.config.ObjectMapperUtils;
 import org.archetype_project.domain.Product;
 import org.archetype_project.presentation.response.ProductResponse;
@@ -7,12 +8,8 @@ import org.archetype_project.util.ConstantsNames;
 import org.archetype_project.util.ConstantsTestIT;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.TestInstance;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
-import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
@@ -21,11 +18,8 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import java.nio.charset.StandardCharsets;
 import java.util.List;
 
-@SpringBootTest
-@ActiveProfiles("test")
-@AutoConfigureMockMvc
-@TestInstance(TestInstance.Lifecycle.PER_CLASS)
-public class ArchetypeControllerIT {
+
+public class ArchetypeControllerIT extends ArchetypeIntegrationTests {
 
     @Autowired
     private MockMvc mockMvc;
